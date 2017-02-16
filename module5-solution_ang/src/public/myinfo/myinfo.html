@@ -1,0 +1,39 @@
+<div class="container" >
+<h2> My info </h2>
+<!--  first name, last name, email address, and phone number. It should also ask the user to specify the menu number that's their favorite dish. (The menu number is the short_name attribute of each menu item). -->
+<div ng-if="!info.user.firstname">
+  <a ui-sref="public.signup">Sign up Now!</a>  
+  <h3>Not Signed Up Yet</h3>
+</div>
+
+<div ng-if="info.user.firstname">
+ First name: {{ info.user.firstname }} <br>
+ Last name: {{ info.user.lastname }} <br>
+ e-mail: {{ info.user.email }} <br>
+ phone: {{ info.user.phone }} <br>
+ Favorite menu item: {{ info.user.sn }} <br>
+
+
+<div class="menu-item-tile col-md-6">
+  <div class="row">
+    <div class="col-sm-5">
+      <div class="menu-item-photo">
+        <div>{{info.menuItem.short_name}}</div>
+        <img class="img-responsive" width="250" height="150" ng-src="{{info.basePath}}/images/{{info.menuItem.short_name}}.jpg" alt="{{info.menuItem.name}}">
+      </div>
+      <div class="menu-item-price">{{info.menuItem.price_small | currency}}<span> {{info.menuItem.small_portion_name}}</span> {{info.menuItem.price_large | currency}} <span>{{info.menuItem.large_portion_name}}</span></div>
+    </div>
+    <div class="menu-item-description col-sm-7">
+      <h3 class="menu-item-title">{{info.menuItem.name}}</h3>
+      <p class="menu-item-details">{{info.menuItem.description}}</p>
+    </div>
+  </div>
+  <hr class="visible-xs">
+</div>
+
+ 
+  
+</div>
+ 
+  
+</div>
