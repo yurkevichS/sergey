@@ -30,6 +30,15 @@ module Module1
     config.generators {|g| g.orm :active_record}
     #config.generators {|g| g.orm :mongoid}
 
+    config.middleware.insert_before 0, "Rack::Cors" do 
+    allow do
+        origins '*'
+        resource '/api/*',
+        :headers => :any,
+        :methods => [:get, :post, :put, :delete, :options]
+    end
+    end
+
     config.api_only = true
   end
 end
